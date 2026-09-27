@@ -47,7 +47,7 @@
             font-size: 23px;
             font-weight: 400;
             line-height: 120%;
-            color: whitesmoke;
+            color: rgba(255, 255, 255, 1);
             &:hover {
                 color: rgba(112, 230, 28, 1);
             }
@@ -68,7 +68,7 @@
             height: 32px;
             border: 1px solid rgba(112, 230, 28, 1);
             border-radius: 10px;
-            color: whitesmoke;
+            color: rgba(255, 255, 255, 1);
             background-color: transparent;
             &:hover {
                 background-color: rgba(151, 71, 255, 1);

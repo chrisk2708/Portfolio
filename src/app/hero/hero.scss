@@ -17,7 +17,7 @@
 .hero-bg {
     display: flex;
     width: 100%;
-    margin-top: -435px;
+    margin-top: -490px;
     z-index: 2;
 }
 
@@ -25,19 +25,145 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1000px;
+    width: 900px;
     height: 860px;
     margin: 110px 0px 0px 0px;
-    padding-right: 220px;
+    padding-right: 270px;
     background-image: url(../../../public/assets/img/shadow-hero-foto.png);
     background-size: 103%;
     background-repeat: none;
-    background-position: -50px 70px;
+    background-position: -70px 70px;
     z-index: 1;
 
     img {
         object-fit: cover;
-        width: 646px;
+        width: 580px;
         z-index: 2;
+    }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    // justify-content: flex-end;
+    // align-items: flex-start;
+    position: absolute;
+    top: 330px;
+    width: 1344px;
+    height: 700px;
+    // border: 1px solid red;
+    z-index: 3;
+
+    .hero-name {
+        display: flex;
+        justify-content: flex-end;
+        // width: 625px;
+        width: 50%;
+        height: 172px;
+        // border: 1px solid red;
+        z-index: 2;
+
+        .art-vertical {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 50px;
+            right: 505px;
+        }
+
+        .vertical-text {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            width: 152px;
+            height: 100px;
+            // border: 1px solid red;
+            rotate: -90deg;
+            color: rgba(255, 255, 255, 1);
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 120%;
+        }
+
+        .art-names {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 620px;
+
+            .firstname, .lastname {
+                display: flex;
+                justify-content: end;
+                width: 625px;
+                height: 95px;
+                // border: 1px solid red;
+                color: rgba(255, 255, 255, 1);
+                font-size: 90px;
+                font-weight: 700;
+                line-height: 120%;
+            }
+
+            .activity {
+                display: flex;
+                justify-content: end;
+                width: 625px;
+                height: 70px;
+                // border: 1px solid red;
+                color: rgba(151, 71, 255, 1);
+                font-size: 58px;
+                font-weight: 400;
+                line-height: 120%;
+            }
+
+            button {
+                display: flex;
+                width: 165px;
+                height: 58px;
+                padding: 15px 30px;
+                margin-top: 44px;
+                background-color: rgba(112, 230, 28, 1);
+                color: rgba(255, 255, 255, 1);
+                font-size: 23px;
+                font-weight: 400;
+                line-height: 120%;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .hero-contact {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 50%;
+        // border: 1px solid red;
+
+        .hero-contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 566px;
+            height: 40px;
+            gap: 32px;
+            // border: 1px solid red;
+            color: rgba(255, 255, 255, 1);
+
+            button {
+                display: flex;
+                background-color: transparent;
+                border: none;
+                border-radius: 50%;
+            }
+
+            .line {
+                display: flex;
+            }
+
+            p > a {
+                display: flex;
+                color: rgba(255, 255, 255, 1);
+                text-decoration: none;
+            }
+        }
     }
 }
