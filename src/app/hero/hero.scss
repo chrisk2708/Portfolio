@@ -1,0 +1,43 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 29, 47, 1);
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px;
+    // z-index: 1;
+}
+
+.hero-bg {
+    display: flex;
+    width: 100%;
+    margin-top: -435px;
+    z-index: 2;
+}
+
+.hero-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    height: 860px;
+    margin: 110px 0px 0px 0px;
+    padding-right: 220px;
+    background-image: url(../../../public/assets/img/shadow-hero-foto.png);
+    background-size: 103%;
+    background-repeat: none;
+    background-position: -50px 70px;
+    z-index: 1;
+
+    img {
+        object-fit: cover;
+        width: 646px;
+        z-index: 2;
+    }
+}
