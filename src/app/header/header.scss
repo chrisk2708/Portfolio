@@ -1,12 +1,13 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
+    max-width: 1440px;
     height: 109px;
     background: rgba(20, 29, 47, 1);
     position: fixed;
-
+    z-index: 4;
 
     .content-wrapper {
         display: flex;
@@ -24,8 +25,8 @@
     }
 
     .logo img {
-        width: 150px;
-        height: 100%;
+        width: auto;
+        height: 35px;
     }
 
     .nav {
