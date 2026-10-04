@@ -1,20 +1,22 @@
 .about {
     display: flex;
     justify-content: flex-end;
-    position: absolute;
-    top: 1155px;
-    right: 75px;
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     height: 532px;
-    // border: 1px solid rgb(0, 4, 255);
+    // background-color: rgba(20, 29, 47, 1);
+    border: 1px solid red;
+    margin-top: 124px;
     z-index: 2;
 
     .about-wrapper {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
-        width: 1340px;
-        height: 532px;
+        width: 100%;
+        max-width: 1340px;
+        height: 100%;
+        border: 1px solid red;
 
         .about-text {
             display: flex;

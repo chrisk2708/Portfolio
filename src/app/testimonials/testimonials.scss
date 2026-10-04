@@ -1,0 +1,113 @@
+:host {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1340px;
+    height: 378px;
+    margin-top: 146px;
+    border: 1px solid red;
+    gap: 32px;
+
+    .quotation-marks {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 97px;
+        height: 68px;
+        z-index: 2;
+    }
+
+    .testimonials-wrapper {
+        display: flex;
+        width: 1276px;
+        height: 272px;
+        margin-top: 40px;
+
+        .foto {
+            width: 272px;
+            height: 272px;
+            border: 4px solid rgba(151, 71, 255, 1);
+            border-radius: 50%;
+        }
+
+        .foto-line {
+            align-self: center;
+            // justify-self: center;
+            width: 100%;
+            max-width: 104px;
+            height: 4px;
+            color: rgba(151, 71, 255, 1);
+        }
+
+        .testimonials-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 852px;
+            height: 100%;
+            border: 4px solid rgba(112, 230, 28, 1);
+            border-radius: 32px;
+            padding: 48px 96px;
+            margin-right: 48px;
+            gap: 44px;
+            color: rgba(255, 255, 255, 1);
+
+            .user-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .content-line {
+                    display: flex;
+                    width: 404px;
+                    height: 2px;
+                    padding-right: 1rem;
+                }
+
+                p {
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 120%;
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+
+    .slider-btn {
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        
+        button {
+            display: flex;
+            align-self: center;
+            justify-self: center;
+            align-self: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(20, 29, 47, 1);
+            color: rgba(112, 230, 28, 1);
+            border: 2px solid transparent;
+            border-radius: 50%;
+            &:hover {
+                border-color: rgba(112, 230, 28, 1);
+            }
+        }
+
+        .slider-point {
+            display: flex;
+            width: 105px;
+            height: 40px;
+        }
+    }
+}

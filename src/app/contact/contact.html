@@ -1,1 +1,89 @@
-<p>contact works!</p>
+<section class="contact">
+    <article class="contact-headline">
+        <hr>
+        <h2>Contact</h2>
+    </article>
+    <div class="content-wrapper">
+        <article class="contact-text">
+            <h3>Got a problem to solve?</h3>
+            <p>Encourage people to contact you and describe what role you are interested in.
+                Show that you will add value to their projects through your work.</p>
+            <p>Need a Frontend developer? <span>Contact me!</span></p>
+        </article>
+        <form class="contact-formular" [formGroup]="userForm" (ngSubmit)="formSubmit()">
+            <div class="input">
+                <div class="input-field-wrapper">
+                    <input 
+                        type="text"
+                        formControlName ="name"
+                        name="input-name"
+                        id="input-name"
+                        placeholder="Your name"
+                    />
+                    @if (name?.invalid && (name?.touched || name?.dirty)) {
+                        <span class="input-icon error-icon">!</span>
+                    }
+                    @if (name?.valid && (name?.touched || name?.dirty)) {
+                        <span class="input-icon success-icon">✓</span>
+                    }
+                </div>
+                @if (name?.invalid && (name?.touched || name?.dirty)) {
+                    <span class="invalid-txt">Your name is required</span>
+                }
+            </div>
+            <div class="input">
+                <div class="input-field-wrapper">
+                    <input 
+                        type="email"
+                        formControlName ="email"
+                        name="input-mail"
+                        id="input-mail"
+                        placeholder="Your E-Mail"
+                    />
+                    @if (email?.invalid && (email?.touched || email?.dirty)) {
+                        <span class="input-icon error-icon">!</span>
+                    }
+                    @if (email?.valid && (email?.touched || email?.dirty)) {
+                        <span class="input-icon success-icon">✓</span>
+                    }
+                </div>
+                @if (email?.invalid && (email?.touched || email?.dirty)) {
+                    <span class="invalid-txt">Your email is required</span>
+                }
+            </div>
+            <div class="message">
+                <div class="input-field-wrapper textarea-wrapper">
+                    <textarea
+                        formControlName = "message"
+                        name="text-message"
+                        id="text-message"
+                        placeholder="Your message"
+                    ></textarea>
+                    @if (message?.invalid && (message?.touched || message?.dirty)) {
+                        <span class="input-icon error-icon">!</span>
+                    }
+                    @if (message?.valid && (message?.touched || message?.dirty)) {
+                        <span class="input-icon success-icon">✓</span>
+                    }
+                </div>
+                @if (message?.invalid && (message?.touched || message?.dirty)) {
+                    <span class="invalid-txt">Message is required (max. 200 characters)</span>
+                }
+                <div class="privacy-policy">
+                    <label  class="custom-checkbox">
+                        <input
+                            type="checkbox"
+                            formControlName="privacyPolicy"
+                            name="checkbox-privacy-policy"
+                            id="checkbox-privacy-policy"
+                        />
+                        <span class="checkmark"></span>
+                    </label>
+                    <p>I've read the <span class="txt-highlight">privacy policy</span> and agree to the
+                    processing of my data as outlined.</p>
+                </div>
+            </div>
+            <button class="submit" [disabled]="userForm.invalid" type="submit">Send message :)</button>
+        </form>
+    </div>
+</section>
