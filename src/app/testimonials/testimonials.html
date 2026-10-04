@@ -1,0 +1,19 @@
+<section class="testimonials">
+    <img class="quotation-marks" src="./assets/img/quot_marks.png" alt="quotation marks icon">
+    <article class="testimonials-wrapper">
+        <div class="testimonials-content">
+            <p>{{testimonials[currId].text}}</p>
+            <div class="user-info">
+                <img class="content-line" src="./assets/img/line3.png" alt="purple line">
+                <p>{{testimonials[currId].name}} - {{testimonials[currId].role}}</p>
+            </div>
+        </div>
+        <img class="foto" src="./assets/img/{{testimonials[currId].img}}" alt="foto">
+        <img class="foto-line" src="./assets/img/line2.png" alt="purple line">
+    </article>
+    <div class="slider-btn">
+        <button (click)="prev()"><img src="./assets/icons/arrow_back.png" alt="preview button"></button>
+        <img class="slider-point" src="./assets/img/{{testimonials[currId].points}}" alt="">
+        <button (click)="next()"><img src="./assets/icons/arrow_forward.png" alt="next button"></button>
+    </div>
+</section>
