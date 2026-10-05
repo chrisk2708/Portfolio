@@ -8,6 +8,7 @@
     width: 100%;
     max-width: 1440px;
     margin-top: 180px;
+    padding-bottom: 180px;
 
     .contact-headline {
         align-self: center;
@@ -48,6 +49,20 @@
             line-height: 1;
             width: 50%;
             padding-left: 100px;
+
+            p {
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 120%;
+                color: rgba(255, 255, 255, 1);
+            }
+
+            span {
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: 120%;
+                color: rgba(255, 255, 255, 1);
+            }
         }
 
         .contact-formular {
@@ -279,5 +294,14 @@
                 }
             }
         }
+    }
+
+    .shadow-footer {
+        position: absolute;
+        width: 747px;
+        height: auto;
+        top: 470px;
+        left: -250px;
+        z-index: 1;
     }
 }

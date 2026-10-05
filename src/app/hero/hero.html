@@ -1,8 +1,8 @@
 <section class="hero">
     <div class="content-wrapper">
         <section class="hero-foto">
-            <img src="./assets/img/hero-foto.png" alt="foto">
-            <img class="hero-wave" src="./assets/img/wave.png" alt="wave shape image">
+            <img src="./assets/img/hero-foto.png" alt="Christian Sobotta Profilfoto">
+            <img class="hero-wave" src="./assets/img/wave.png" alt="Dekorative Wellen-Grafik">
             <img class="hero-shadow" src="./assets/img/shadow-hero-foto.png" alt="">
         </section>
         <section class="hero-name">
@@ -12,23 +12,30 @@
             </article>
             <article class="art-act">
                 <div class="activity">FRONTEND DEVELOPER</div>
-                <button>Let's talk!</button>
+                <button (click)="scrollToContact()">Let's talk!</button>
             </article>
         </section>
     </div>
+    
     <section class="hero-content">
-            <article class="hero-contact-btn">
-                <!-- <img class="line" src="./assets/img/line.png" alt="purple line"> -->
-                <hr>
-                <button class="github-icon"><img src="./assets/icons/github_btn.png" alt="github icon-button"></button>
-                <button class="email-icon"><img src="./assets/icons/email_btn.png" alt="email icon-button"></button>
-                <button class="linkedin-icon"><img src="./assets/icons/linkedin_btn.png" alt="linkedin icon-button"></button>
-                <p class="email"><a href="#">chris.k2708@gmail.com</a></p>
-            </article>
-            <p class="hero-scroll-down" >Scroll down
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13 16.172L17.657 11.515C18.0475 11.1245 18.6806 11.1245 19.071 11.515C19.4615 11.9055 19.4615 12.5385 19.071 12.929L12.7072 19.2929C12.3166 19.6834 11.6835 19.6834 11.2929 19.2929L4.92905 12.929C4.53858 12.5385 4.53858 11.9055 4.92905 11.515C5.31951 11.1245 5.95258 11.1245 6.34305 11.515L11 16.172V5C11 4.44772 11.4478 4 12 4C12.5523 4 13 4.44772 13 5V16.172Z" fill="white"/>
-                </svg>
-            </p>
+        <article class="hero-contact-btn">
+            <hr>
+            <a href="https://github.com/chrisk2708/Portfolio" target="_blank" rel="noopener noreferrer" class="github-icon" aria-label="GitHub Profil öffnen">
+                <img src="./assets/icons/github_btn.png" alt="GitHub Icon">
+            </a>
+            <button class="email-icon" (click)="scrollToContact()" aria-label="Zum Kontaktformular">
+                <img src="./assets/icons/email_btn.png" alt="E-Mail Icon">
+            </button>
+            <button class="linkedin-icon" aria-label="LinkedIn Profil öffnen">
+                <img src="./assets/icons/linkedin_btn.png" alt="LinkedIn Icon">
+            </button>
+            <p class="email"><a href="mailto:chris.k2708@gmail.com">chris.k2708@gmail.com</a></p>
+        </article>
+        
+        <p class="hero-scroll-down">Scroll down
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 16.172L17.657 11.515C18.0475 11.1245 18.6806 11.1245 19.071 11.515C19.4615 11.9055 19.4615 12.5385 19.071 12.929L12.7072 19.2929C12.3166 19.6834 11.6835 19.6834 11.2929 19.2929L4.92905 12.929C4.53858 12.5385 4.53858 11.9055 4.92905 11.515C5.31951 11.1245 5.95258 11.1245 6.34305 11.515L11 16.172V5C11 4.44772 11.4478 4 12 4C12.5523 4 13 4.44772 13 5V16.172Z" fill="white"/>
+            </svg>
+        </p>
     </section>
 </section>

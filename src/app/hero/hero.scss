@@ -5,11 +5,11 @@
     align-items: center;
     width: 100%;
     background-color: rgba(20, 29, 47, 1);
+    padding: 109px 0 124px;
 
     .hero-wave {
         display: flex;
         z-index: 1;
-        border: 1px solid blue;
     }
 
     .content-wrapper {
@@ -18,8 +18,6 @@
         align-items: center;
         width: 100%;
         max-width: 1440px;
-        // border: 1px solid red;
-        margin-top: 109px;
         background-color: transparent;
         z-index: 1;
 
@@ -29,7 +27,6 @@
             justify-content: center;
             width: 50%;
             height: auto;
-            // background-image: url(../../../public/assets/img/shadow-hero-foto.png);
             background-size: 120%;
             background-repeat: none;
             background-position: center;
@@ -54,7 +51,7 @@
                 width: 125%;
                 height: auto;
                 position: absolute;
-                left: -2%;
+                left: -8%;
                 top: 10%;
                 z-index: 1;
 
@@ -68,7 +65,6 @@
             width: 50%;
             height: 100%;
             background-color: transparent;
-            // border: 1px solid red;
             z-index: 1;
             
             .hero-name-wrapper {
@@ -80,7 +76,6 @@
                     align-items: start;
                     width: 160px;
                     height: 180px;
-                    // border: 1px solid red;
                     rotate: -90deg;
                     color: rgba(255, 255, 255, 1);
                     font-size: 64px;
@@ -93,7 +88,6 @@
                     width: 450px;
                     height: auto;
                     text-align: end;
-                    // border: 1px solid red;
                     color: rgba(255, 255, 255, 1);
                     font-size: 90px;
                     font-weight: 700;
@@ -113,7 +107,6 @@
                 justify-content: end;
                 width: 625px;
                 height: 70px;
-                // border: 1px solid red;
                 color: rgba(151, 71, 255, 1);
                 font-size: 58px;
                 font-weight: 400;
@@ -132,7 +125,14 @@
             font-size: 23px;
             font-weight: 400;
             line-height: 120%;
+            border: none;
             border-radius: 10px;
+            transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+
+            &:hover {
+                background-color: rgb(151, 71, 255);
+                transform: scale(1.08); // Vergrößert den Button um 8%
+            }
         }
         
     }
@@ -143,7 +143,6 @@
         align-items: flex-end;
         width: 1440px;
         height: 132px;
-        border: 1px solid red;
         z-index: 3;
 
         .hero-contact-btn {
@@ -168,7 +167,7 @@
             right: calc(100% - 100px);
             width: 100vw;
             height: 4px;
-            background-color: rgb(151, 71, 255);
+            background-color: rgba(151, 71, 255, 1);
             border: none;
         }
 
