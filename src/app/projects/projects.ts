@@ -23,5 +23,12 @@ export class Projects {
           'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. ',
       imgSrc: 'project_join.png',
     },
+    {
+      name: 'Pokedex',
+      knowledge: ['JavaScript', 'HTML', 'CSS', 'API'],
+      description:
+          'Based on the PokéAPI a simple library that provides and catalogues pokemon information.',
+      imgSrc: 'project_pokedex.png',
+    },
   ];
 }

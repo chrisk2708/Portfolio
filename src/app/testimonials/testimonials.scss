@@ -12,8 +12,8 @@
     max-width: 1340px;
     height: 378px;
     margin-top: 146px;
-    border: 1px solid red;
     gap: 32px;
+    z-index: 2;
 
     .quotation-marks {
         display: flex;
@@ -22,14 +22,16 @@
         left: 0;
         width: 97px;
         height: 68px;
-        z-index: 2;
+        z-index: 3;
     }
 
     .testimonials-wrapper {
         display: flex;
+        justify-content: center;
         width: 1276px;
         height: 272px;
         margin-top: 40px;
+        z-index: 2;
 
         .foto {
             width: 272px;
@@ -39,10 +41,10 @@
         }
 
         .foto-line {
-            align-self: center;
-            // justify-self: center;
-            width: 100%;
-            max-width: 104px;
+            position: absolute;
+            left: 1220px;
+            top: 135px;
+            width: 100vw;
             height: 4px;
             color: rgba(151, 71, 255, 1);
         }
@@ -109,5 +111,14 @@
             width: 105px;
             height: 40px;
         }
+    }
+
+    .shadow-testimonial {
+        position: absolute;
+        width: auto;
+        height: 951px;
+        top: -520px;
+        right: -670px;
+        z-index: 1;
     }
 }

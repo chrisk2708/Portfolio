@@ -12,11 +12,19 @@ export class Testimonials {
   currId = 0;
 
   prev():void {
-    this.currId -=1
+    if (this.currId == 0) {
+      this.currId = this.testimonials.length - 1;
+    } else {
+      this.currId -=1;
+    }
   }
 
   next():void {
-    this.currId +=1
+    if (this.currId == this.testimonials.length - 1) {
+      this.currId = 0;
+    } else {
+      this.currId +=1;
+    }
   }
 
   testimonials: Testimonial[] = [

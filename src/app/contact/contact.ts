@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule ,Validators } from '@angular/forms';
-import { log } from 'console';
 
 @Component({
   imports: [ReactiveFormsModule],

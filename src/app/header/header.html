@@ -1,18 +1,31 @@
-<section class="header">
+<section id="header" class="header">
     <div class="content-wrapper">
         <section class="logo">
             <img src="./assets/img/Version3.svg" alt="logo">
         </section>
         <section class="nav">
             <ul>
-                <li><a href="">About Me</a></li>
-                <li><a href="">Skills</a></li>
-                <li><a href="">Portfolio</a></li>
+                @for (item of navItems; track item.label) {
+                    <li>
+                        <a 
+                            [href]="item.fragment"
+                            [class.active]="activeNavItem === item.label"
+                            (click)="setActive(item.label)">
+                            {{ item.label }}
+                        </a>
+                    </li>
+                }
             </ul>
         </section>
         <section class="lang">
-            <button class="btn active">DE</button>
-            <button class="btn">EN</button>
+            @for (lang of languages; track lang.code) {
+                <button 
+                    class="btn" 
+                    [class.active]="lang.active"
+                    (click)="switchLanguage(lang)">
+                    {{ lang.code }}
+                </button>
+            }
         </section>
     </div>
 </section>
