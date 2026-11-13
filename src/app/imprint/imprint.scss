@@ -1,0 +1,182 @@
+@use '../../../public/assets/styles' as *;
+
+.legal-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-bg;
+  color: $color-white;
+  font-family: 'Open Sans', sans-serif;
+  padding: $header-height + 59px 0 80px;
+}
+
+.legal-wrapper {
+  width: 100%;
+  max-width: $page-max-width;
+  padding: 0 clamp(20px, 14vw, 200px);
+
+  > :not(.legal-headline) {
+    max-width: 968px;
+  }
+}
+
+.legal-headline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+  margin: 0 calc(50% - 50vw) 48px calc(50% - 50vw + 20px);
+
+  .line {
+    height: 4px;
+    background-color: $color-purple;
+  }
+
+  .line-left {
+    flex: 0 1 130px;
+    min-width: 40px;
+  }
+
+  .line-right {
+    flex: 0 1 500px;
+    min-width: 40px;
+  }
+}
+
+h1 {
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 120%;
+  color: $color-green;
+  white-space: nowrap;
+
+  &.long {
+    font-size: min(61px, 6vw);
+  }
+}
+
+h2 {
+  margin: 24px 0 16px;
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 120%;
+  color: $color-purple;
+}
+
+.legal-headline + h2 {
+  margin-top: 0;
+}
+
+h3 {
+  margin: 24px 0 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 120%;
+  color: $color-purple;
+}
+
+h2 + h3 {
+  margin-top: 16px;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 120%;
+
+  + p {
+    margin-top: 19px;
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: underline;
+  }
+}
+
+.legal-date {
+  margin-top: 24px;
+}
+
+.privacy {
+  .legal-wrapper > :not(.legal-headline) {
+    max-width: 1032px;
+  }
+
+  h2 {
+    margin: 35px 0 10px;
+  }
+
+  .legal-headline + h2 {
+    margin-top: 0;
+  }
+}
+
+.back-btn-container {
+  margin-top: 48px;
+
+  .back-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    background-color: $color-green;
+    color: $color-white;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-purple;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .legal-section {
+    padding: $header-height + 71px 0 40px;
+  }
+
+  .legal-wrapper {
+    padding: 0 20px;
+  }
+
+  .legal-headline {
+    justify-content: flex-start;
+    gap: 14px;
+    margin: 0 -20px 32px 0;
+
+    .line-left {
+      display: none;
+    }
+
+    .line-right {
+      flex: 1;
+    }
+  }
+
+  h1 {
+    font-size: 42px;
+
+    &.long {
+      font-size: min(42px, 7.2vw);
+    }
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  .privacy h2 {
+    margin-top: 24px;
+  }
+
+  .back-btn-container {
+    margin-top: 32px;
+
+    .back-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+}
