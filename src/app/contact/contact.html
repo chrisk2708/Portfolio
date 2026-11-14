@@ -1,90 +1,141 @@
 <section id="contact" class="contact">
-    <article class="contact-headline">
-        <hr>
-        <h2>Contact</h2>
-    </article>
-    <div class="content-wrapper">
-        <article class="contact-text">
-            <h3>Got a problem to solve?</h3>
-            <p>Encourage people to contact you and describe what role you are interested in.
-                Show that you will add value to their projects through your work.</p>
-            <p>Need a Frontend developer? <span>Contact me!</span></p>
-        </article>
-        <form class="contact-formular" [formGroup]="userForm" (ngSubmit)="formSubmit()">
-            <div class="input">
-                <div class="input-field-wrapper">
-                    <input 
-                        type="text"
-                        formControlName ="name"
-                        name="input-name"
-                        id="input-name"
-                        placeholder="Your name"
-                    />
-                    @if (name?.invalid && (name?.touched || name?.dirty)) {
-                        <span class="input-icon error-icon">!</span>
-                    }
-                    @if (name?.valid && (name?.touched || name?.dirty)) {
-                        <span class="input-icon success-icon">✓</span>
-                    }
-                </div>
-                @if (name?.invalid && (name?.touched || name?.dirty)) {
-                    <span class="invalid-txt">Your name is required</span>
-                }
-            </div>
-            <div class="input">
-                <div class="input-field-wrapper">
-                    <input 
-                        type="email"
-                        formControlName ="email"
-                        name="input-mail"
-                        id="input-mail"
-                        placeholder="Your E-Mail"
-                    />
-                    @if (email?.invalid && (email?.touched || email?.dirty)) {
-                        <span class="input-icon error-icon">!</span>
-                    }
-                    @if (email?.valid && (email?.touched || email?.dirty)) {
-                        <span class="input-icon success-icon">✓</span>
-                    }
-                </div>
-                @if (email?.invalid && (email?.touched || email?.dirty)) {
-                    <span class="invalid-txt">Your email is required</span>
-                }
-            </div>
-            <div class="message">
-                <div class="input-field-wrapper textarea-wrapper">
-                    <textarea
-                        formControlName = "message"
-                        name="text-message"
-                        id="text-message"
-                        placeholder="Your message"
-                    ></textarea>
-                    @if (message?.invalid && (message?.touched || message?.dirty)) {
-                        <span class="input-icon error-icon">!</span>
-                    }
-                    @if (message?.valid && (message?.touched || message?.dirty)) {
-                        <span class="input-icon success-icon">✓</span>
-                    }
-                </div>
-                @if (message?.invalid && (message?.touched || message?.dirty)) {
-                    <span class="invalid-txt">Message is required (max. 200 characters)</span>
-                }
-                <div class="privacy-policy">
-                    <label  class="custom-checkbox">
-                        <input
-                            type="checkbox"
-                            formControlName="privacyPolicy"
-                            name="checkbox-privacy-policy"
-                            id="checkbox-privacy-policy"
-                        />
-                        <span class="checkmark"></span>
-                    </label>
-                    <p>I've read the <span class="txt-highlight">privacy policy</span> and agree to the
-                    processing of my data as outlined.</p>
-                </div>
-            </div>
-            <button class="submit" [disabled]="userForm.invalid" type="submit">Send message :)</button>
-        </form>
+  <img class="shadow-contact" src="./assets/img/purple_shadow_footer.webp" alt="" />
+
+  <div class="contact-headline">
+    <span class="line"></span>
+    <h2>{{ i18n.t('contact.title') }}</h2>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="contact-text">
+      <h3>{{ i18n.t('contact.subtitle') }}</h3>
+      <p>{{ i18n.t('contact.text') }}</p>
+      <p>
+        {{ i18n.t('contact.need') }} <strong>{{ i18n.t('contact.me') }}</strong>
+      </p>
     </div>
-    <img class="shadow-footer" src="./assets/img/purple_shadow_footer.png" alt="">
+
+    <form class="contact-form" [formGroup]="userForm" (ngSubmit)="formSubmit()" novalidate>
+      <div class="field">
+        <label class="visually-hidden" for="contact-name">{{ i18n.t('contact.name') }}</label>
+        <input
+          id="contact-name"
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          [placeholder]="i18n.t('contact.name')"
+          [class.invalid]="showError('name')"
+          [class.valid]="showValid('name')"
+          [attr.aria-invalid]="showError('name')"
+          aria-describedby="contact-name-error"
+        />
+        <span id="contact-name-error" class="error-txt" [class.visible]="showError('name')">{{
+          i18n.t('contact.nameError')
+        }}</span>
+      </div>
+
+      <div class="field">
+        <label class="visually-hidden" for="contact-email">{{ i18n.t('contact.email') }}</label>
+        <input
+          id="contact-email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          [placeholder]="i18n.t('contact.email')"
+          [class.invalid]="showError('email')"
+          [class.valid]="showValid('email')"
+          [attr.aria-invalid]="showError('email')"
+          aria-describedby="contact-email-error"
+        />
+        <span id="contact-email-error" class="error-txt" [class.visible]="showError('email')">{{
+          i18n.t('contact.emailError')
+        }}</span>
+      </div>
+
+      <div class="field">
+        <label class="visually-hidden" for="contact-message">{{ i18n.t('contact.message') }}</label>
+        <textarea
+          id="contact-message"
+          formControlName="message"
+          maxlength="1000"
+          [placeholder]="i18n.t('contact.message')"
+          [class.invalid]="showError('message')"
+          [class.valid]="showValid('message')"
+          [attr.aria-invalid]="showError('message')"
+          aria-describedby="contact-message-error"
+        ></textarea>
+        <span id="contact-message-error" class="error-txt" [class.visible]="showError('message')">{{
+          i18n.t('contact.messageError')
+        }}</span>
+      </div>
+
+      <div class="field">
+        <div class="privacy">
+          <input
+            id="contact-privacy"
+            type="checkbox"
+            formControlName="privacyPolicy"
+            aria-describedby="contact-privacy-error"
+          />
+          <label for="contact-privacy">
+            {{ i18n.t('contact.privacyBefore') }}
+            <a routerLink="/privacy">{{ i18n.t('contact.privacyLink') }}</a>
+            {{ i18n.t('contact.privacyAfter') }}
+          </label>
+        </div>
+        <span
+          id="contact-privacy-error"
+          class="error-txt"
+          [class.visible]="showError('privacyPolicy')"
+          >{{ i18n.t('contact.privacyError') }}</span
+        >
+      </div>
+
+      <div class="submit-row">
+        <button
+          class="submit"
+          type="submit"
+          [class.disabled]="isSendDisabled()"
+          [attr.aria-disabled]="isSendDisabled()"
+        >
+          {{ status() === 'sending' ? i18n.t('contact.sending') : i18n.t('contact.send') }}
+        </button>
+        <p
+          class="feedback"
+          role="status"
+          aria-live="polite"
+          [class.success]="status() === 'success'"
+          [class.error]="status() === 'error'"
+        >
+          @if (status() === 'success') {
+            {{ i18n.t('contact.success') }}
+          }
+          @if (status() === 'error') {
+            {{ i18n.t('contact.error') }}
+          }
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <button
+    type="button"
+    class="to-top"
+    (click)="scrollToTop()"
+    [attr.aria-label]="i18n.t('contact.toTop')"
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M11 7.828L6.343 12.485a1 1 0 1 1-1.414-1.414l6.364-6.364a1 1 0 0 1 1.414 0l6.364 6.364a1 1 0 0 1-1.414 1.414L13 7.828V19a1 1 0 1 1-2 0V7.828Z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
 </section>
