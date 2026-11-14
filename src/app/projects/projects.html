@@ -1,25 +1,47 @@
 <section id="projects" class="projects">
-    <article class="projects-title">
-        <hr class="hr-before">
-        <h2>Portfolio</h2>
-        <hr>
-    </article>
-        <p>Explore a selection of my work here - Interact with projects to see my skills in action.</p>
-    <article class="projects-wrapper">
-        @for (project of projects; track $index) {
-            <div class="projects-single-wrapper" [class.reversed]="$odd">
-                <img class="projects-img" src="./assets/img/{{ project.imgSrc }}" alt="">
-                <div class="projects-info">
-                    <h3>{{project.name}}</h3>
-                    <p class="projects-prog-lang">{{project.knowledge.join(' | ')}}</p>
-                    <p>{{project.description}}</p>
-                    <div class="projects-btn">
-                        <button class="live-test-btn">Live Test</button>
-                        <button class="github-btn">Github</button>
-                    </div>
-                </div>
-            </div>
-        }
-    </article>
-    <img class="shadow-portfolio" src="./assets/img/purple_shadow_portfolio.png" alt="">
+  <img class="shadow-portfolio" src="./assets/img/purple_shadow_portfolio.webp" alt="" />
+  <div class="projects-title">
+    <span class="line line-left"></span>
+    <h2>{{ i18n.t('projects.title') }}</h2>
+    <span class="line line-right"></span>
+  </div>
+  <p class="intro">{{ i18n.t('projects.intro') }}</p>
+
+  <div class="projects-wrapper">
+    @for (project of projects; track project.name) {
+      <article class="project" [class.reversed]="$odd">
+        <a
+          class="project-img"
+          [href]="project.urlTest"
+          target="_blank"
+          rel="noopener noreferrer"
+          tabindex="-1"
+        >
+          <img
+            [src]="'./assets/img/' + project.imgSrc"
+            [alt]="project.name + ' ' + i18n.t('projects.previewAlt')"
+            width="620"
+            height="339"
+          />
+        </a>
+        <div class="project-info">
+          <h3>{{ project.name }}</h3>
+          <p class="tech">{{ project.knowledge.join(' | ') }}</p>
+          <p class="description">{{ i18n.t(project.descriptionKey) }}</p>
+          <div class="project-btns">
+            <a
+              class="btn-live"
+              [href]="project.urlTest"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ i18n.t('projects.live') }}</a
+            >
+            <a class="btn-git" [href]="project.urlGit" target="_blank" rel="noopener noreferrer">{{
+              i18n.t('projects.github')
+            }}</a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
 </section>
