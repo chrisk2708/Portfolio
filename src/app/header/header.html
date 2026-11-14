@@ -1,31 +1,83 @@
-<section id="header" class="header">
-    <div class="content-wrapper">
-        <section class="logo">
-            <img src="./assets/img/Version3.svg" alt="logo">
-        </section>
-        <section class="nav">
-            <ul>
-                @for (item of navItems; track item.label) {
-                    <li>
-                        <a 
-                            [href]="item.fragment"
-                            [class.active]="activeNavItem === item.label"
-                            (click)="setActive(item.label)">
-                            {{ item.label }}
-                        </a>
-                    </li>
-                }
-            </ul>
-        </section>
-        <section class="lang">
-            @for (lang of languages; track lang.code) {
-                <button 
-                    class="btn" 
-                    [class.active]="lang.active"
-                    (click)="switchLanguage(lang)">
-                    {{ lang.code }}
-                </button>
-            }
-        </section>
+<header class="header">
+  <div class="content-wrapper">
+    <a class="logo" routerLink="/" (click)="closeMenu()" aria-label="Home">
+      <img src="./assets/img/logo.svg" alt="Christian Sobotta Logo" />
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        @for (item of navItems; track item.fragment) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="item.fragment"
+              [class.active]="activeNavItem() === item.fragment"
+              (click)="setActive(item.fragment)"
+            >
+              {{ i18n.t(item.label) }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="lang">
+      @for (lang of languages; track lang) {
+        <button
+          type="button"
+          class="btn"
+          [class.active]="i18n.lang() === lang"
+          (click)="i18n.setLanguage(lang)"
+        >
+          {{ lang }}
+        </button>
+      }
     </div>
-</section>
+
+    <button
+      type="button"
+      class="burger-menu"
+      [class.open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      [attr.aria-label]="i18n.t(isMenuOpen() ? 'nav.closeMenu' : 'nav.openMenu')"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div
+  class="mobile-menu"
+  [class.open]="isMenuOpen()"
+  [attr.aria-hidden]="!isMenuOpen()"
+  (click)="closeMenu()"
+>
+  <nav aria-label="Mobile">
+    <ul>
+      @for (item of mobileNavItems; track item.fragment) {
+        <li>
+          <a
+            routerLink="/"
+            [fragment]="item.fragment"
+            [class.active]="activeNavItem() === item.fragment"
+            (click)="setActive(item.fragment)"
+          >
+            {{ i18n.t(item.label) }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="mobile-lang" (click)="$event.stopPropagation()">
+      <button type="button" [class.active]="i18n.lang() === 'EN'" (click)="i18n.setLanguage('EN')">
+        EN
+      </button>
+      <span>/</span>
+      <button type="button" [class.active]="i18n.lang() === 'DE'" (click)="i18n.setLanguage('DE')">
+        DE
+      </button>
+    </div>
+  </nav>
+</div>
