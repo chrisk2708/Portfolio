@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslationService } from '../services/translation-service';
 
+/**
+ * Above-the-fold section with photo, name, role, contact button and social links.
+ */
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-hero',
   styleUrl: './hero.scss',
   templateUrl: './hero.html',
 })
 export class Hero {
-  scrollToContact() {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  /** Provides the texts of this section in the active language. */
+  protected readonly i18n = inject(TranslationService);
 }
