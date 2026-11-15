@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Imprint } from './imprint';
 
+/** Unit tests for the Imprint component. */
 describe('Imprint', () => {
   let component: Imprint;
   let fixture: ComponentFixture<Imprint>;
@@ -8,6 +10,7 @@ describe('Imprint', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Imprint],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Imprint);

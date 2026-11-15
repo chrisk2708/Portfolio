@@ -1,56 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Testimonial } from '../interfaces/testimonial';
+import { TranslationService } from '../services/translation-service';
 
+/**
+ * Slider with references from former team members.
+ * Arrows and dots switch between the references, the last one is followed by the first one again.
+ */
 @Component({
-  imports: [],
   selector: 'app-testimonials',
   styleUrl: './testimonials.scss',
   templateUrl: './testimonials.html',
 })
-
 export class Testimonials {
-  currId = 0;
+  /** Provides the texts of this section in the active language. */
+  protected readonly i18n = inject(TranslationService);
 
-  prev():void {
-    if (this.currId == 0) {
-      this.currId = this.testimonials.length - 1;
-    } else {
-      this.currId -=1;
-    }
-  }
-
-  next():void {
-    if (this.currId == this.testimonials.length - 1) {
-      this.currId = 0;
-    } else {
-      this.currId +=1;
-    }
-  }
-
-  testimonials: Testimonial[] = [
+  /** References in the order they are shown. */
+  protected readonly testimonials: Testimonial[] = [
     {
-      currId: 1,
-      name: 'V.Schuster',
-      role: 'Team Partner',
-      text: "Michael really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
+      name: 'M. Schmitz',
+      textKey: 'testimonials.1.text',
+      roleKey: 'testimonials.1.role',
       img: 'user1.png',
-      points: 'slider_point1.png'
     },
     {
-      currId: 2,
-      name: 'E.Eichinger',
-      role: 'Team Partner',
-      text: 'Michi was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.',
+      name: 'E. M. Hashimi',
+      textKey: 'testimonials.2.text',
+      roleKey: 'testimonials.2.role',
       img: 'user2.png',
-      points: 'slider_point2.png'
     },
     {
-      currId: 3,
-      name: 'I.Nuber',
-      role: 'Frontend Engineer',
-      text: 'It was a great pleasure to work with Michael. He knows how to push and encourage team members to present the best work possible, always adding something to brainstorm. Regarding the well-being of group members, he was always present and available to listen and help others, with a great sense of humor as well.',
+      name: 'V. Sonneck',
+      textKey: 'testimonials.3.text',
+      roleKey: 'testimonials.3.role',
       img: 'user3.png',
-      points: 'slider_point3.png'
     },
   ];
+
+  /** Index of the visible reference. */
+  protected readonly currentIndex = signal(0);
+
+  /** The visible reference. */
+  protected readonly current = computed(() => this.testimonials[this.currentIndex()]);
+
+  /**
+   * Shows the previous reference, or the last one when the first one is visible.
+   */
+  protected prev(): void {
+    const count = this.testimonials.length;
+    this.currentIndex.update((i) => (i - 1 + count) % count);
+  }
+
+  /**
+   * Shows the next reference, or the first one when the last one is visible.
+   */
+  protected next(): void {
+    this.currentIndex.update((i) => (i + 1) % this.testimonials.length);
+  }
+
+  /**
+   * Shows the reference at the given position.
+   *
+   * @param index - Position of the reference in the list.
+   */
+  protected goTo(index: number): void {
+    this.currentIndex.set(index);
+  }
 }

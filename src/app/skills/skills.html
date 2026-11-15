@@ -1,17 +1,57 @@
 <section id="skills" class="skills">
-    <article class="skill-logos">
-        @for (skill of skills; track skill.name) {
-            <img [src]="skill.icon" [alt]="skill.name + ' icon'">
+  <img class="shadow-skills" src="./assets/img/green_shadow_skills_portfolio.webp" alt="" />
+  <ul class="skill-logos">
+    @for (skill of skills; track skill.name) {
+      <li [class.highlight]="skill.highlight">
+        <span class="logo"><img [src]="skill.icon" alt="" /></span>
+        <span class="label">{{ skill.label }}</span>
+        @if (skill.highlight) {
+          <div class="interest">
+            <p>{{ i18n.t('skills.interest') }}</p>
+            <div class="interest-logos">
+              <span
+                ><img
+                  src="./assets/icons/skills/react.svg"
+                  alt=""
+                  width="32"
+                  height="32"
+                />React</span
+              >
+              <span
+                ><img
+                  src="./assets/icons/skills/vue.svg"
+                  alt=""
+                  width="32"
+                  height="32"
+                />Vue.js</span
+              >
+            </div>
+            <svg class="tail" width="26" height="17" viewBox="0 0 26 17" aria-hidden="true">
+              <path
+                d="M9.82 12.84 L0 0 L26 0 L16.18 12.84 C14.58 14.94 11.42 14.94 9.82 12.84 Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
         }
-    </article>
-    <article class="skill-text">
-        <h2>My Skills</h2>
-        <p>Show that you have used a variety of
-            front-end technologies in your projects.</p>
-        <h3>Looking for <span>another skill</span>?</h3>
-        <p>Reveal enthusiasm for learning new technologies and frameworks.</p>
-        <button>Get in touch</button>
-    </article>
-        <img class="shadow-skills" src="./assets/img/green_shadow_skills_portfolio.png" alt="">
-        <hr>
+      </li>
+    }
+  </ul>
+  <div class="skill-text">
+    <div class="skill-intro">
+      <div class="headline">
+        <h2>{{ i18n.t('skills.title') }}</h2>
+        <span class="line"></span>
+      </div>
+      <p>{{ i18n.t('skills.text') }}</p>
+    </div>
+    <div class="skill-more">
+      <h3>
+        {{ i18n.t('skills.lookingFor') }} <span>{{ i18n.t('skills.anotherSkill') }}</span
+        >?
+      </h3>
+      <p>{{ i18n.t('skills.learning') }}</p>
+      <a class="cta" routerLink="/" fragment="contact">{{ i18n.t('skills.cta') }}</a>
+    </div>
+  </div>
 </section>
