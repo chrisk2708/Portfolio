@@ -1,20 +1,61 @@
-<section class="testimonials">
-    <img class="quotation-marks" src="./assets/img/quot_marks.png" alt="quotation marks icon">
-    <article class="testimonials-wrapper">
-        <div class="testimonials-content">
-            <p>{{testimonials[currId].text}}</p>
-            <div class="user-info">
-                <img class="content-line" src="./assets/img/line3.png" alt="purple line">
-                <p>{{testimonials[currId].name}} - {{testimonials[currId].role}}</p>
-            </div>
-        </div>
-        <img class="foto" src="./assets/img/{{testimonials[currId].img}}" alt="foto">
-        <img class="foto-line" src="./assets/img/line2.png" alt="purple line">
-    </article>
-    <div class="slider-btn">
-        <button (click)="prev()"><img src="./assets/icons/arrow_back.png" alt="preview button"></button>
-        <img class="slider-point" src="./assets/img/{{testimonials[currId].points}}" alt="">
-        <button (click)="next()"><img src="./assets/icons/arrow_forward.png" alt="next button"></button>
+<section class="testimonials" aria-roledescription="carousel">
+  <img class="shadow-testimonial" src="./assets/img/green_shadow_3.webp" alt="" />
+  <div class="testimonials-wrapper">
+    <img class="quotation-marks" src="./assets/img/quot_marks.png" alt="" width="70" height="66" />
+    <div class="testimonial-box" aria-live="polite">
+      @for (t of testimonials; track t.name; let i = $index) {
+        <blockquote
+          class="slide"
+          [class.active]="i === currentIndex()"
+          [attr.aria-hidden]="i !== currentIndex()"
+        >
+          <p>{{ i18n.t(t.textKey) }}</p>
+          <footer class="author">
+            <span class="line"></span>
+            <cite>{{ t.name }} - {{ i18n.t(t.roleKey) }}</cite>
+          </footer>
+        </blockquote>
+      }
     </div>
-    <img class="shadow-testimonial" src="./assets/img/green_shadow_3.png" alt="">
+    <div class="foto">
+      <img
+        [src]="'./assets/img/' + current().img"
+        [alt]="i18n.t('testimonials.photoAlt') + ' ' + current().name"
+        width="272"
+        height="272"
+      />
+    </div>
+    <span class="foto-line"></span>
+  </div>
+
+  <div class="slider-controls">
+    <button
+      type="button"
+      class="arrow"
+      (click)="prev()"
+      [attr.aria-label]="i18n.t('testimonials.prev')"
+    >
+      <img src="./assets/icons/arrow_back.png" alt="" />
+    </button>
+    <div class="dots">
+      @for (t of testimonials; track t.name; let i = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.active]="i === currentIndex()"
+          (click)="goTo(i)"
+          [attr.aria-label]="t.name"
+          [attr.aria-current]="i === currentIndex()"
+        ></button>
+      }
+    </div>
+    <button
+      type="button"
+      class="arrow"
+      (click)="next()"
+      [attr.aria-label]="i18n.t('testimonials.next')"
+    >
+      <img src="./assets/icons/arrow_forward.png" alt="" />
+    </button>
+  </div>
 </section>
