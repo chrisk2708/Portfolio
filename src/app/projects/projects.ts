@@ -29,8 +29,8 @@ export class Projects {
       knowledge: ['JavaScript', 'HTML', 'CSS'],
       descriptionKey: 'projects.epl.description',
       imgSrc: 'project_epl.png',
-      urlTest: 'https://chrisk2708.github.io/El-Pollo-Loco/',
-      urlGit: 'https://github.com/chrisk2708/El-Pollo-Loco',
+      urlTest: 'https://chrisk2708.github.io/El_Pollo_Loco/',
+      urlGit: 'https://github.com/chrisk2708/El_Pollo_Loco',
     },
     {
       name: 'Pokédex',
