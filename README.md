@@ -1,59 +1,75 @@
-# Portfolio
+# Portfolio Christian Sobotta
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+My personal portfolio website as a frontend developer, built with Angular.
 
-## Development server
+**Live:** [christian-sobotta.de](https://christian-sobotta.de)
 
-To start a local development server, run:
+## About the project
 
-```bash
-ng serve
-```
+The site is a one-pager with the sections Hero, About me, Skills, Portfolio, References and Contact, plus separate pages for the legal notice and the privacy policy.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Available in German and English, the chosen language is saved in the browser
+- Responsive layout for desktop, tablet and mobile
+- Contact form with validation, sent via a small PHP mail script
+- All pages are prerendered at build time, so the site runs on regular web hosting without Node.js
 
-## Code scaffolding
+## Tech stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular 22 (standalone components, signals, reactive forms)
+- TypeScript
+- SCSS
+- Angular SSR for prerendering
+- PHP for the contact form
+- Vitest for unit tests
 
-```bash
-ng generate component component-name
-```
+## Getting started
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Requirements: Node.js 22.22 or 24.15 (or newer) and npm.
 
 ```bash
-ng build
+git clone https://github.com/chrisk2708/Portfolio.git
+cd Portfolio
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The development server runs at `http://localhost:4200`. The contact form only works on a server with PHP, so locally it shows the error message after sending.
 
-## Running unit tests
+## Scripts
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Command         | Description                             |
+| --------------- | --------------------------------------- |
+| `npm start`     | Starts the development server           |
+| `npm run build` | Creates the production build in `dist/` |
+| `npm test`      | Runs the unit tests                     |
+
+## Project structure
+
+```
+public/
+├── assets/          images, icons, fonts and global SCSS
+├── sendMail.php     mail script for the contact form
+└── .htaccess        HTTPS redirect and fallback to the start page
+src/app/
+├── hero/ about/ skills/ projects/ testimonials/ contact/
+├── header/ footer/
+├── imprint/ privacy/
+├── interfaces/      data types for projects, skills and references
+└── services/        translations and scrolling to anchors
+```
+
+## Deployment
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Upload the contents of `dist/Portfolio/browser/` to the web space. The `server/` folder is not needed, because every page is already prerendered.
 
-For end-to-end (e2e) testing, run:
+## Contact
 
-```bash
-ng e2e
-```
+Christian Sobotta
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Website: [christian-sobotta.de](https://christian-sobotta.de)
+- LinkedIn: [christian-sobotta](https://www.linkedin.com/in/christian-sobotta-16786b450/)
+- GitHub: [chrisk2708](https://github.com/chrisk2708)
