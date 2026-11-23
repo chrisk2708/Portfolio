@@ -172,8 +172,8 @@
 
 .shadow-portfolio {
   position: absolute;
-  bottom: -224px;
-  left: -280px;
+  bottom: -300px;
+  left: -520px;
   width: 856px;
   height: 960px;
   max-width: none;
@@ -183,8 +183,8 @@
 
 @media (max-width: $bp-tablet) {
   .shadow-portfolio {
-    bottom: -175px;
-    left: -210px;
+    bottom: -225px;
+    left: -390px;
     width: 642px;
     height: 720px;
   }
@@ -263,9 +263,8 @@
   }
 
   .shadow-portfolio {
-    top: calc(43% - 220px);
-    bottom: auto;
-    left: 37px;
+    bottom: -260px;
+    left: -200px;
     width: 371px;
     height: 439px;
   }

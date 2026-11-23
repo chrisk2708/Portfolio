@@ -55,8 +55,6 @@ const EN: Dictionary = {
     'Jump, run and throw game based on an object-oriented approach. Help Pepe find coins and tabasco salsa to fight against the crazy hen.',
   'projects.join.description':
     'Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories.',
-  'projects.pokedex.description':
-    'Based on the PokéAPI, a simple library that provides and catalogues Pokémon information.',
 
   'testimonials.prev': 'Previous reference',
   'testimonials.next': 'Next reference',
@@ -150,8 +148,6 @@ const DE: Dictionary = {
     'Jump-and-Run-Spiel mit objektorientiertem Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen die verrückte Henne zu kämpfen.',
   'projects.join.description':
     'Aufgabenmanager nach dem Vorbild des Kanban-Systems. Erstelle und organisiere Aufgaben per Drag-and-Drop, weise Benutzer und Kategorien zu.',
-  'projects.pokedex.description':
-    'Eine einfache Bibliothek auf Basis der PokéAPI, die Pokémon-Informationen bereitstellt und katalogisiert.',
 
   'testimonials.prev': 'Vorherige Referenz',
   'testimonials.next': 'Nächste Referenz',

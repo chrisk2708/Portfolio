@@ -21,7 +21,7 @@ export class Projects {
       knowledge: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
       descriptionKey: 'projects.join.description',
       imgSrc: 'project_join.png',
-      urlTest: 'https://chrisk2708.github.io/Join/',
+      urlTest: '/join/',
       urlGit: 'https://github.com/chrisk2708/Join',
     },
     {
@@ -29,16 +29,8 @@ export class Projects {
       knowledge: ['JavaScript', 'HTML', 'CSS'],
       descriptionKey: 'projects.epl.description',
       imgSrc: 'project_epl.png',
-      urlTest: 'https://chrisk2708.github.io/El_Pollo_Loco/',
+      urlTest: '/el-pollo-loco/',
       urlGit: 'https://github.com/chrisk2708/El_Pollo_Loco',
-    },
-    {
-      name: 'Pokédex',
-      knowledge: ['JavaScript', 'HTML', 'CSS', 'API'],
-      descriptionKey: 'projects.pokedex.description',
-      imgSrc: 'project_pokedex.png',
-      urlTest: 'https://chrisk2708.github.io/Pokedex/',
-      urlGit: 'https://github.com/chrisk2708/Pokedex',
     },
   ];
 }
